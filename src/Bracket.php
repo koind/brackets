@@ -20,6 +20,7 @@ class Bracket
 
     /**
      * Checks for invalid characters in the string.
+     * Allowable characters: " , (), \t, \r, \n"
      *
      * @param string $string
      * @throws InvalidArgumentException
