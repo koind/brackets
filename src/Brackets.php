@@ -1,10 +1,15 @@
 <?php
 
-namespace App;
+namespace Koind;
 
 use InvalidArgumentException;
 
-class Bracket
+/**
+ * Class Brackets
+ *
+ * @package Koind
+ */
+class Brackets
 {
     /**
      * Checks the string.
@@ -16,6 +21,8 @@ class Bracket
     public function checkString(string $string)
     {
         $this->checkForInvalidCharacters($string);
+
+        return $this->isValidString($string);
     }
 
     /**
@@ -30,5 +37,31 @@ class Bracket
         if (preg_match('#[^ ()\t\r\n]#i', $string) || empty($string)) {
             throw new InvalidArgumentException("The string contains invalid characters!");
         }
+    }
+
+    /**
+     * Checks whether the string is valid.
+     * That is, all open parentheses are correctly opened and closed.
+     *
+     * @param string $string
+     * @return bool
+     */
+    protected function isValidString(string $string): bool
+    {
+        $x = 0;
+        for ($i = 0; $i < strlen($string); $i++)
+        {
+            if ($string[$i] === "(") {
+                $x++;
+            } elseif ($string[$i] === ")") {
+                $x--;
+            }
+
+            if ($x < 0) {
+                return false;
+            }
+        }
+
+        return $x === 0;
     }
 }
