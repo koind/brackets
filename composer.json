@@ -3,7 +3,7 @@
     "description": "A small project for working with brackets",
     "type": "project",
     "require": {
-        "php": "^7.0"
+        "php": "^7.2"
     },
     "require-dev": {
         "phpunit/phpunit": "^7"
@@ -19,11 +19,6 @@
     "autoload": {
         "psr-4": {
             "Koind\\": "src"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Tests\\": "tests/"
         }
     }
 }
